@@ -1,0 +1,24 @@
+<h1 align="center">Shell Tasker</h1></h2>
+<div class="row">
+  <div class="nine columns">
+    <div class="u-full-width" id="todo">
+        <div>
+          <%= render @tasks_not_achieved %>
+        </div>
+    </div>
+    <%= link_to "New Task", new_task_path, id: "newtask", class:"button u-full-width", remote: true %>
+
+  </div>
+
+  <div class="three columns">
+  <h3>Achieved (<%=@tasks_achieved.count%>)</h3>
+  <ul id="achieved">
+    <% @tasks_achieved.each_with_index do |task, index| %>
+        <li>
+          <%=task.name%>
+        </li>
+    <% end %>
+  </ul>
+
+</div>
+

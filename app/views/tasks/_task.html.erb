@@ -1,0 +1,15 @@
+
+<div class="row task" id="task<%=task.id%>">
+  <div class="six columns">
+    <p class="u-full-width">
+      <%=task.name%>
+    </p>
+  </div>
+  <div class="three columns">
+    <%= link_to "Remove", task, method: :delete, data: {confirm: "Are you sure?"},
+                class: "button u-full-width", remote: true %>
+  </div>
+  <div class="three columns">
+    <%= link_to "Fullfil", task, method: :patch, class: "button button-primary u-full-width", remote: true %>
+  </div>
+</div>
