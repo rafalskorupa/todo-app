@@ -1,0 +1,23 @@
+<h1>Shell Tasker</h1>
+
+<div id="new_list_section">
+<%= link_to "New List", new_list_path, id: "newlist", class:"button u-full-width", remote: true %>
+</div>
+
+<div class="row">
+<% @lists.each_with_index do |list, index| %>
+
+    <div class="three columns">
+      <%= link_to list.name, list %>
+      <p> Finished <%= list.achieved_count %>/<%= list.total %> tasks. </p>
+    </div>
+
+      <% if index%4==3 %>
+          </div>
+          <div class="row">
+      <% end %>
+
+
+<% end %>
+
+</div>

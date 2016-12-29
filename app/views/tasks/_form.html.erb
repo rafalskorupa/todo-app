@@ -1,11 +1,12 @@
   <%= form_for @task, id: 'new_form', remote: true do |f| %>
-      <div class="row">
+      <%= f.hidden_field :list_id, :value => @list_id %>
 
-      <div class="nine columns">
-        <%= f.text_field :name, class: "u-full-width" %>
-      </div>
-      <div class="three columns">
-        <%= f.submit 'Add', class: "button button-primary u-full-width" %>
-      </div>
+      <div class="row">
+        <div class="nine columns">
+          <%= f.text_field :name, class: "u-full-width" %>
+        </div>
+        <div class="three columns">
+          <%= f.submit 'Add', class: "button button-primary u-full-width" %>
+        </div>
       </div>
   <% end %>

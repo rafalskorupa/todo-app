@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   end
 
   def new
+    @list_id = params[:list_id]
     @task = Task.new
   end
 
@@ -43,7 +44,7 @@ class TasksController < ApplicationController
   private
 
   def creating_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:name, :list_id)
   end
 
   def updating_params

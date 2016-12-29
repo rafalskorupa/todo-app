@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-["buy milk", 'pet a dog', "sell a book", "get a job", "feed poor sparrow"].each do |name|
-  Task.create(name: name)
+15.times do
+  list = List.create!(name: "#{Faker::Superhero.name}'s list")
+  Random.rand(15).times do
+    list.tasks.create(name: "learn #{Faker::Superhero.power}", active: (Random.rand(5)>2 ? true : false))
+  end
 end

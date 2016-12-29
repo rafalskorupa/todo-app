@@ -1,7 +1,4 @@
 class Task < ApplicationRecord
+  belongs_to :list
 
-
-  def upcount
-    Random.rand(120)
-  end
 end

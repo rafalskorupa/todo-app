@@ -6,7 +6,7 @@
           <%= render @tasks_not_achieved %>
         </div>
     </div>
-    <%= link_to "New Task", new_task_path, id: "newtask", class:"button u-full-width", remote: true %>
+    <%= link_to "New Task", new_task_path(), id: "newtask", class:"button u-full-width", remote: true %>
 
   </div>
 
