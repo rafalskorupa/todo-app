@@ -12,7 +12,7 @@
   user = User.create!(password: "12345678", password_confirmation: "12345678", name: Faker::Superhero.name, email: "#{i}@mail.com")
 
   Random.rand(3).times do |j|
-    list = user.lists.create!(name: "#{Faker::Superhero.name}'s #{j} list")
+    list = user.lists.create!(name: "#{user.name}'s #{j} list")
     Random.rand(15).times do
       list.tasks.create(name: "learn #{Faker::Superhero.power}", active: (Random.rand(5)>2 ? true : false))
     end
