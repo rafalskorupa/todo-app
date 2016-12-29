@@ -1,23 +1,47 @@
-<h2 align="center"><%= @list.name %></h2>
+<h2 align="center">
+  <%= @list.name %>
+</h2>
+
 <div class="row">
+
   <div class="nine columns">
+
+    <%= link_to "New Task", new_task_path(list_id: @list.id), id: "newtask",
+                class:"button u-full-width", remote: true if @list.can_modify_tasks(current_user) %>
+
+
     <div class="u-full-width" id="todo">
+
       <div>
+
         <%= render @list.todo_tasks %>
+
       </div>
+
     </div>
-    <%= link_to "New Task", new_task_path(list_id: @list.id), id: "newtask", class:"button u-full-width", remote: true %>
+
 
   </div>
 
   <div class="three columns">
+
+
     <h3>Achieved (<%=@list.achieved_tasks.count%>)</h3>
+
     <ul id="achieved">
-      <% @list.achieved_tasks.each_with_index do |task, index| %>
+
+      <% @list.achieved_tasks.each_with_index do |task| %>
+
           <li>
+
             <%=task.name%>
+
           </li>
       <% end %>
+
     </ul>
+
+    <p>Created by: <%=@list.user.name %></p>
+
 
   </div>

@@ -1,4 +1,3 @@
-
 <div class="row task" id="task<%=task.id%>">
   <div class="six columns">
     <p class="u-full-width">
@@ -7,9 +6,10 @@
   </div>
   <div class="three columns">
     <%= link_to "Remove", task, method: :delete, data: {confirm: "Are you sure?"},
-                class: "button u-full-width", remote: true %>
+                class: "button u-full-width", remote: true if task.list.can_modify_tasks(current_user) %>
   </div>
   <div class="three columns">
-    <%= link_to "Fullfil", task, method: :patch, class: "button button-primary u-full-width", remote: true %>
+    <%= link_to "Fullfil", task, method: :patch,
+                class: "button button-primary u-full-width", remote: true if task.list.can_modify_tasks(current_user) %>
   </div>
 </div>

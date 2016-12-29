@@ -1,5 +1,7 @@
 class List < ApplicationRecord
   has_many :tasks
+  belongs_to :user
+
 
   def achieved_tasks
     tasks.where(active: true)
@@ -19,5 +21,9 @@ class List < ApplicationRecord
 
   def total
     tasks.count
+  end
+
+  def can_modify_tasks(current_user)
+    current_user == user ? true : false
   end
 end

@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.create!(list_params)
+    @list = current_user.lists.create!(list_params)
 
     respond_to do |f|
       f.html { redirect_to @list }
