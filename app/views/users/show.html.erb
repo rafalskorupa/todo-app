@@ -1,0 +1,74 @@
+<h2>
+  <%= @user.name %>
+</h2>
+
+<table class="u-full-width">
+  <thead>
+  <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        To do
+      </th>
+      <th>
+        Finished
+      </th>
+      <th>
+        Total
+      </th>
+      <th>
+        % finished
+      </th>
+      <th>
+        Go to...
+      </th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+       <td>
+          <%=list.name%>
+        </td>
+        <td>
+          <%=list.todo_count%>
+        </td>
+        <td>
+          <%=list.achieved_count%>
+        </td>
+        <td>
+          <%=list.total%>
+        </td>
+        <td>
+          <%=list.achieved_percent%>%
+        </td>
+        <td>
+          <%=link_to "Go to", list_path(list), class: "button" %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>
+        Summary
+      </th>
+      <th>
+        <%=@user.todo_count%>
+      </th>
+      <th>
+        <%=@user.achieved_count%>
+      </th>
+      <th>
+        <%=@user.total%>
+      </th>
+      <th>
+        <%=@user.achieved_percent%>%
+      </th>
+    </tr>
+  </tfoot>
+
+
+</table>
+<%= link_to 'Back to root list', lists_path, class: "button u-full-width" %>

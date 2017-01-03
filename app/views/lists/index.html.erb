@@ -20,3 +20,10 @@
 <% end %>
 
 </div>
+  <hr>
+  <h5>Statistics:</h5>
+  <ul>
+    <li>Lists: <%= List.all.count %></li>
+    <li>Tasks: <%= Task.all.count %>, finished: <%= Task.achieved_count %>, it's <%= Task.achieved_percent %>% of total!</li>
+    <li>Users: <%= User.all.count %></li>
+  </ul>

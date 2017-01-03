@@ -24,7 +24,7 @@
   </div>
 
   <div class="three columns">
-
+    <%= link_to @list.user.name, @list.user, class: "button u-full-width" %>
 
     <h3>Achieved (<%=@list.achieved_tasks.count%>)</h3>
 
@@ -41,7 +41,8 @@
 
     </ul>
 
-    <p>Created by: <%=@list.user.name %></p>
 
 
   </div>
+
+  <%= link_to 'Back to root list', lists_path, class: "button u-full-width" %>
